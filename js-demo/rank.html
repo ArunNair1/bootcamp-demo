@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<body>
+		<script>
+		
+		
+		var my_Array=[18,18,16,18,16,15,12,10,12,8];
+		var big=my_Array[0];
+		var rank=1;
+		var counter=1;
+		var j=0;
+		for(var i=0;i<my_Array.length;i++)
+		{
+			for(j=i+1;j<my_Array.length;j++)
+			{
+				if(my_Array[i]<my_Array[j])
+				{
+					let res=my_Array[i];
+					my_Array[i]=my_Array[j];
+					my_Array[j]=res;
+				}
+				
+			}
+			if(i==0)
+			{
+				console.log(my_Array[i]+"=>"+rank);counter++;
+			}
+			else if(my_Array[i]==my_Array[i-1])
+			{
+				console.log(my_Array[i]+"=>"+rank);counter++;
+			}
+			else{rank=counter;console.log(my_Array[i]+"=>"+rank);counter++;}
+			/*if(big<my_Array[j])
+			{ 
+				big=my_Array[j];
+				console.log(big+"=>"+k);
+				big=my_Array[k];
+				k++;
+			}
+			else
+			{
+				console.log(big+"=>"+k);
+				big=my_Array[k]; 
+				k++;  
+				j++;
+			}*/
+			
+		}
+		console.log("hey"+my_Array);
+		</script>
+		<h1>
+		Hello world
+		</h1>
+	</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<body>
+		<script>
+		
+		
+		var my_Array=["geany","sublime","chrome","firefox"];
+		
+		console.log("before tab: "+my_Array);
+		
+		var counter=prompt("enter number of times alt was pressed");
+		//var swap;
+		
+		if(counter>(my_Array.length-1))
+		{counter=(counter%my_Array.length);}
+		/*if(counter<=(my_Array.length-1))
+		{*/
+		
+			while(counter>0)
+			{
+				let swap=my_Array[counter];
+				my_Array[counter]=my_Array[counter-1];
+				my_Array[counter-1]=swap;
+				counter--;
+			}
+		/*}
+		else
+		{
+				counter=counter/my_Array.length;
+				console.log("array remains the same"+counter);
+		}*/
+		console.log("after tab: "+my_Array);
+		
+		
+		</script>
+		<h1>
+		Hello world
+		</h1>
+	</body>
+</html>
