@@ -13,6 +13,19 @@
 		{
 			display:none;
 		}
+		.table-for-td-selector,.row-for-td-selector,.td-for-td-selector
+		{
+			border:1px solid #333;
+		}
+		.table-for-td-selector
+		{	
+			width:200px;
+		}
+		.class-for-hidden-li,.shade
+		{
+			background-color:rgba(0,0,0,0.3);
+			padding:5px;
+		}
 	</style>
 		<script>
 			$("document").ready(function()
@@ -28,68 +41,81 @@
 				
 				$("div li:not(.hide)").css("color","lightgreen");
 				
-				$("td").not(":empty").css("color","red");
+				$(".td-for-td-selector").not(":empty").css("color","red");
 				
 			});
 			
 		</script>
-		
+		<h3># jquery on heading elements</h3>
 		<h1>this is a h1 tag</h1>
+		<h2>this is a h2 tag</h2>
+		<h3>this is a h3 tag</h3>
+		<h4>this is a h4 tag</h4>
+		<h5>this is a h5 tag</h5>
+		<h6>this is a h6 tag</h6>
+		<hr/>
+		<h3># jquery on elements with 'REPLACE_ME' text</h3>
 		
 		<div>
-			<p>
+			<p class="find-replace">
 			Lorem Ipsum is simply dummy REPLACE_ME text of the printing 
 			</p>
 		</div>
 		
-		<p>and typesetting industry. Lorem Ipsum has been the industry's REPLACE_ME 
+		<p  class="find-replace">
+			and typesetting industry. Lorem Ipsum has been the industry's REPLACE_ME 
 		</p>
-		<p>standard dummy text ever since the 1500s, when an unknown printer 
+		<p class="find-replace">
+			standard dummy text ever since the 1500s, when an unknown printer 
 		</p>
-		<p>took a galley of type and scrambled it to make a type specimen book. 
+		<p class="find-replace">
+			took a galley of type and scrambled it to make a type specimen book. 
 		</p>
-		<p>It has survived not only five centuries, but also the leap into electronic <span>REPLACE_ME</span>
+		<p class="find-replace">
+			It has survived not only five centuries, but also the leap into electronic 
+			<span>
+				REPLACE_ME
+			</span>
 		</p>
-		<p>typesetting, remaining essentially unchanged. 
+		<p class="find-replace">
+			typesetting, remaining essentially unchanged. 
 		</p>
-		<p>It was popularised in the 1960s with the release of Letraset REPLACE_ME sheets 
-		</p>
-		<p>containing Lorem Ipsum passages, and more recently 
-		</p>
-		<h2>this is a h2 tag</h2>
-		<div>
-			<p class="child">
-				<p class="special">
-				paragraph in first div
-				</p>
-			</p>
+		
+		<hr/>
+		<h3># jquery on elements with 'special' class</h3>
+		<div class="shade">
+				<div>
+					<p class="child">
+						<p class="special">
+						paragraph in first div
+						</p>
+					</p>
+				</div>
+				
+				
+				<div>
+					<p class="special child">
+						paragraph in second div.
+					</p>
+				</div>
+				
+				
+				<div>
+					<p class="child">
+						 paragraph in third div.
+					</p>
+				</div>
 		</div>
-		<h3>this is a h3 tag</h3>
-		<h4>this is a h4 tag</h4>
-		<div>
-			<p class="special child">
-				paragraph in second div.
-			</p>
-		</div>
-		
-		<h5>this is a h5 tag</h5>
-		<h6>this is a h6 tag</h6>
-		
-		<div>
-			<p class="child">
-				 paragraph in third div.
-			</p>
-		</div>
-		
-		
-		<div>
+		<hr/>
+		<h3># jquery on visible list elements</h3>
+		<div class="class-for-hidden-li">
 			<ul class="child hide">
 				 <li>li 1 of hidden ul</li>
 				 <li>li 2 of hidden ul</li>
 				 <li>li 3 of hidden ul</li>
 			</ul>
 		</div>
-		<div>
+		<div class="class-for-hidden-li">
 			<ul class="child">
 				 <li>li 1 of visible ul</li>
 				 <li>li 2 of visible ul</li>
@@ -97,37 +123,57 @@
 				 
 			</ul>
 		</div>
+		<hr/>
+		<h3># jquery on visible table-data</h3>
 		
 		<table class="table-for-td-selector">
-			<tr class="row-for-td-selector">
-				<td class="td-for-td-selector">one</td>
-				<td class="td-for-td-selector">two</td>
-			</tr>
-			<tr class="row-for-td-selector">
-				<td class="td-for-td-selector"></td>
-				<td class="td-for-td-selector">four</td>
-			</tr>
-			<tr class="row-for-td-selector">
-				<td class="td-for-td-selector"></td>
-				<td class="td-for-td-selector">six</td>
-			</tr>
+			<thead>
+				<tr class="row-for-td-selector">
+					<th> 
+						Table 1 to use jquery on visible table-data
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="row-for-td-selector">
+					<td class="td-for-td-selector">one</td>
+					<td class="td-for-td-selector">two</td>
+				</tr>
+				<tr class="row-for-td-selector">
+					<td class="td-for-td-selector"></td>
+					<td class="td-for-td-selector">four</td>
+				</tr>
+				<tr class="row-for-td-selector">
+					<td class="td-for-td-selector"></td>
+					<td class="td-for-td-selector">six</td>
+				</tr>
+			</tbody>
 		</table>
 	
 	
 	
-		<table class="second-table-for-td-selector">
-			<tr class="next-row-for-td-selector">
-				<td class="next-td-for-td-selector">one</td>
-				<td class="next-td-for-td-selector">two</td>
-			</tr>
-			<tr class="row-for-td-selector">
-				<td class="next-td-for-td-selector"></td>
-				<td class="next-td-for-td-selector">four</td>
-			</tr>
-			<tr class="next-row-for-td-selector">
-				<td class="next-td-for-td-selector"></td>
-				<td class="next-td-for-td-selector">six</td>
-			</tr>
+		<table class="table-for-td-selector">
+			<thead>
+				<tr class="row-for-td-selector">
+					<th>
+						Table 2 to use jquery on visible table-data
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="row-for-td-selector">
+					<td class="td-for-td-selector">one</td>
+					<td class="td-for-td-selector">two</td>
+				</tr>
+				<tr class="row-for-td-selector">
+					<td class="td-for-td-selector"></td>
+					<td class="td-for-td-selector">four</td>
+				</tr>
+				<tr class="row-for-td-selector">
+					<td class="td-for-td-selector"></td>
+					<td class="td-for-td-selector">six</td>
+				</tr>
+			</tbody>
 		</table>
 	
 	
