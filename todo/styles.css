@@ -1,0 +1,57 @@
+*
+			{
+				margin:0px;padding:0px;
+				font-family: "Courier New", Courier, monospace;
+			}
+			.centered-div 
+			{
+				margin:0 auto;
+				text-align:center;
+			}
+			.task-div
+			{
+				background-color:#fbd29b99;
+				width:80%;
+				margin:1% auto;
+			}
+			
+			.task-div h3
+			{
+				padding:10px;
+			}
+			.task-div .close-button, .task-div .edit-bitton
+			{
+				float:right;
+				margin-right:5px;
+				cursor:pointer;
+			}
+			.input-field
+			{
+				font-size:15px;
+				width:50%;
+				height:30px;
+			}
+			.input-field-div
+			{
+				margin:2%;
+			}
+			.submit-btn
+			{
+				padding:5px; 
+			}
+			.outer-div
+			{
+				margin-top:10%;
+				
+			}
+			.inner-div
+			{
+				width:90%;
+				border:5px double #eeeeee;
+				padding:1% 0%;
+			}
+			#err_msg
+			{
+				color:red;
+				font-size:12px;
+			}
