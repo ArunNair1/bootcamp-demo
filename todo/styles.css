@@ -49,9 +49,20 @@
 				width:90%;
 				border:5px double #eeeeee;
 				padding:1% 0%;
+				/*background: #5c5a5a66;
+				color: #fff;*/
 			}
 			#err_msg
 			{
 				color:red;
 				font-size:12px;
 			}
+			
+			
+	/*		
+		body
+		{
+			background:url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQF7_BL0NnnbHXKXcOwDwDMVGadjxHGdy0nLpzGQyn88cDal7VV');
+		}
+		
+		*/

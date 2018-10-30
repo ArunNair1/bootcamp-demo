@@ -1,3 +1,10 @@
+	
+	@import url(http://fonts.googleapis.com/css?family=Orbitron);
+	
+	body
+	{
+		font-family: 'Orbitron', sans-serif;
+	}
 	.calc_table
 	{
 		width:100%;
@@ -12,7 +19,7 @@
 	}
 	td
 	{
-		border:solid 1px #fff;
+		border:solid 2px #fff;
 		text-align:center;
 		width:15px;
 		border-radius:15px;
@@ -20,9 +27,10 @@
 	.calc_outer
 	{
 		border:solid 2px black;
-		width:15%;
+		width:20%;
 		border-radius:5px;
-		margin:50px auto 0 auto;
+		/* margin:50px auto 0 auto; */
+		margin:10% auto 0 auto;
 		background:#5d5d5d;
 		color:#fff;
 		font-weight:bold;
@@ -53,6 +61,7 @@
 		.calc_outer
 		{
 			width:40%;
+			margin-top:15%;
 		}
 	}
 	@media only screen and ( max-width: 500px)
@@ -60,5 +69,13 @@
 		.calc_outer
 		{
 			width:70%;
+			margin-top:15%;
 		}
+	}
+	.calc_table td:active
+	{
+		border:ridge 2px #fff;
+		color:#fff;
+		font-size:15px;
+		box-shadow: 2px 2px 6px 1px #ada9a94d;
 	}

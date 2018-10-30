@@ -15,15 +15,25 @@
 	{
 		var clicked_value=clicked_btn.innerHTML;
 		console.log(result);
+		if(input_counter==0)
+		{ 
+		
+		}
 		if(result!="")
 		{
-			alert("one");
+			//alert("one");
 			document.getElementById('input_display').innerHTML=clicked_value;
 			result="";
 		}
+		else if(input_counter==0 && clicked_btn=='=')
+		{ 
+			
+				document.getElementById('input_display').innerHTML="";
+			
+		}
 		else
 		{
-			alert("two");
+			//alert("two");
 			document.getElementById('input_display').innerHTML+=clicked_value;	
 		}
 		

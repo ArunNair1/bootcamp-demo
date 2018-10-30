@@ -17,7 +17,7 @@ function AddNote()
 		let task_count='task_id_'+task_counter+'';
 		let task_content='task_content_'+task_counter+'';
 		//console.log(task_count);
-		$("#tasks_div").append('<div class="container centered-div task-div" style="display:none;" id="'+task_count+'"><div style="margin:0 auto"><h3 id="'+task_content+'" data-value="'+content+'">'+content+'<span class="close-button"><i class="fa fa-times" onclick="DeleteTask('+task_counter+');"></i></span><span class="edit-bitton" onclick="EditTask('+task_counter+');"><i class="fa fa-edit"></i></span></h3></div></div>');
+		$("#tasks_div").append('<div class="container centered-div task-div" style="display:none;" id="'+task_count+'"><div style="margin:0 auto"><h3 id="'+task_content+'" data-value="'+content+'">'+content+'<span class="close-button"><i class="fa fa-times" onclick="DeleteTask('+task_counter+');"></i></span><span class="edit-bitton" onclick="EditTask('+task_counter+');"><i class="fa fa-edit"></i></span><span class="check-bitton" id="check_'+task_counter+'" onclick="CompleteTask('+task_counter+');"><i class="fa fa-check"></i></span></h3></div></div>');
 		task_counter++;
 		document.getElementById('task_content').value="";
 		$("#"+task_count).fadeIn(1000);
@@ -46,10 +46,21 @@ function EditTask(task_id)
 	let content = $(task_content).attr("data-value");
 	document.getElementById('task_content').value=content;
 	$("#"+task_count).remove();
+	document.getElementById('task_content').focus();
+	
 }
 
 
 
+function CompleteTask(task_id)
+{
+	alert("hi");
+	
+	let task_count='task_id_'+task_id+'';
+	console.log(task_count);
+	$("#"+task_count).fadeOut("fast");
+
+}
 
 $(document).ready( function(){
 	

@@ -1,87 +1,89 @@
 
 
 	
-	var operator="";
+	//var operator="";
 	var operand=0;
 	var operands_array=[];
-	var result;
+	//var result;
 	var input_counter=0;
-	var operator_array=[];
-	var operator_counter=0;
+	//var operator_array=[];
+	//var operator_counter=0;
 	
 	
 	function calc_keypress(clicked_btn)
 	{
 		
 		var clicked_value=clicked_btn.innerHTML;
-		if(my_result!="")
+		
+		
+		console.log(operands_array[input_counter]);
+		console.log(clicked_value);
+		console.log(operands_array[input_counter-1]);
+		console.log(input_counter);
+		if(operands_array.length==0 && isNaN(clicked_value) && operand==0)
 		{
-			document.getElementById('input_display').innerHTML=clicked_value;
-			my_result="";
+			alert("Please check your input");
+		}
+		else if(operands_array.length==0 && clicked_value==0)
+		{
+			alert("Please check your input");
+		}
+		else if(isNaN(clicked_value) && isNaN(operands_array[input_counter-1]) && operands_array[input_counter-1]!=undefined && operands_array[input_counter]!='=' && operand==0)
+		{
+			alert("Please check your input");
 		}
 		else
 		{
-			document.getElementById('input_display').innerHTML+=clicked_value;	
-		}
-		
-		
-		if(isNaN(clicked_value) && operand!=0)
-		{
-			operands_array[input_counter]=operand;
-			operand=0;
-			//operator_array[operator_counter]=clicked_value;
-			//operator_counter++;
-			//console.log("after insetr into array"+operands_array[input_counter]+"and counter"+input_counter);
-			input_counter++;
-			
-			if(clicked_value=="=")
-			{
-				
-				calculate();
-				
-		
-			}
-			else
-			{
-				operands_array[input_counter]=clicked_value;
-				input_counter++;
-			}
-		}
-		
-		else
-		{
-			operand=(operand*10)+Number(clicked_value);
-		}
-		/*
-		if(isNaN(clicked_value) && clicked_value!="=")
-		{
-			console.log("index:"+input_counter+ " and value is: "+operands_array[input_counter]);
-			operator = clicked_value;
-			operands_array[input_counter]=Number(operand);
-			operand=0;
-			input_counter++;
-			
-		}
-		else
-		{
-			//if(operator=="")
-			//{
-					operand=(operand*10)+Number(clicked_value);
+				if(my_result!="")
+					{
+						document.getElementById('input_display').innerHTML=clicked_value;
+						my_result="";
+					}
+					else
+					{
+						document.getElementById('input_display').innerHTML+=clicked_value;	
+					}
 					
-			//s}
-			
-			console.log("index:"+input_counter+ " and value is: "+operands_array[input_counter]);	
+					
+					if(isNaN(clicked_value) && operand!=0)
+					{
+						operands_array[input_counter]=operand;
+						operand=0;
+						//operator_array[operator_counter]=clicked_value;
+						//operator_counter++;
+						//console.log("after insetr into array"+operands_array[input_counter]+"and counter"+input_counter);
+						input_counter++;
+						
+						if(clicked_value=="=")
+						{
+							
+							calculate();
+							
+					
+						}
+						else
+						{
+							operands_array[input_counter]=clicked_value;
+							input_counter++;
+						}
+					}
+					
+					else
+					{
+						operand=(operand*10)+Number(clicked_value);
+					}
 		}
-		console.log(operands_array);
-		document.getElementById("input_display").innerHTML=operator;
-		*/
+					
+		
 	}
 	
 	var my_result="";
 	
 	function calculate()
 	{
-		console.log(operands_array);
+		console.log("actual operands array"+operands_array);
+		//operands_array=['7','+','7','/','7','+','7','*','7','-','7'];
+		console.log("operands array"+operands_array);
 		
 		
 		while(operands_array.includes("/"))
@@ -156,13 +158,20 @@
 			}
 			return operands_array;
 		}
-		my_result=operands_array[0];
+		my_result="result_true";
+		if(isNaN(operands_array[0]))
+		{
+			document.getElementById('input_display').innerHTML="E";
+		}
+		else
+		{
+			document.getElementById('input_display').innerHTML=operands_array[0];
+		}
 		
-		document.getElementById('input_display').innerHTML=operands_array[0];
 		operands_array.length = 0;
 		operands_array=[];
 		input_counter=0;
-		console.log(operands_array);
+		
 		
 		/*str=operands_array.toString();
 		
@@ -201,9 +210,10 @@ function clear_function(val)
 	else if(val==1)
 	{
 		console.log(operands_array);
-		operands_array.pop();
+		//operands_array.pop();
 		console.log(operands_array);
-		input_counter--;
+		console.log(operand);
+		operand=0;
 		for(let i=0;i<operands_array.length;i++)
 		{
 				document.getElementById('input_display').innerHTML+=operands_array[i];
