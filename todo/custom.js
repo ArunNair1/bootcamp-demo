@@ -1,10 +1,11 @@
 
 var task_counter=0;
+var edit_content;
 
 function AddNote()
 {
 	let content=document.getElementById('task_content').value;
-	if(content=="")
+	if(content.trim()=="")
 	{
 		$("#err_msg").show();
 		document.getElementById("err_msg").innerHTML="Please enter a content";
@@ -23,7 +24,7 @@ function AddNote()
 		$("#"+task_count).fadeIn(1000);
 		$( "#"+task_count ).animate({height: 'toggle'}, "fast");
 		$( "#"+task_count ).fadeIn("fast");
-
+		edit_content="";
 	}
 }
 
@@ -37,16 +38,26 @@ function DeleteTask(task_id)
 	
 }
 
-
 function EditTask(task_id)
 {
-	console.log(task_id);
-	let task_count='task_id_'+task_id+'';
-	let task_content='#task_content_'+task_id+'';
-	let content = $(task_content).attr("data-value");
-	document.getElementById('task_content').value=content;
-	$("#"+task_count).remove();
-	document.getElementById('task_content').focus();
+	if(edit_content)
+	{
+			$("#err_msg").show();
+			document.getElementById("err_msg").innerHTML="You can't edit another task till you save current entry";
+			$("#err_msg").fadeOut(2000);
+		
+	}
+	else
+	{
+			console.log(task_id);
+			let task_count='task_id_'+task_id+'';
+			let task_content='#task_content_'+task_id+'';
+			edit_content = $(task_content).attr("data-value");
+			document.getElementById('task_content').value=edit_content;
+			$("#"+task_count).remove();
+			document.getElementById('task_content').focus();
+	
+	}
 	
 }
 
