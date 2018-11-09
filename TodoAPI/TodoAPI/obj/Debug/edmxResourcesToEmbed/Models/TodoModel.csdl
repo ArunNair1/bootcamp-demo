@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TodoAppModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="status_table">
+    <Key>
+      <PropertyRef Name="status_id" />
+    </Key>
+    <Property Name="status_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="stat" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tasks_table" Relationship="Self.FK__tasks_tab__statu__571DF1D5" FromRole="status_table" ToRole="tasks_table" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="tasks_table">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tasks" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="status_id" Type="Int32" />
+    <Property Name="completed_date" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="status_table" Relationship="Self.FK__tasks_tab__statu__571DF1D5" FromRole="tasks_table" ToRole="status_table" />
+  </EntityType>
+  <Association Name="FK__tasks_tab__statu__571DF1D5">
+    <End Role="status_table" Type="Self.status_table" Multiplicity="0..1" />
+    <End Role="tasks_table" Type="Self.tasks_table" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="status_table">
+        <PropertyRef Name="status_id" />
+      </Principal>
+      <Dependent Role="tasks_table">
+        <PropertyRef Name="status_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TodoAppEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="status_table" EntityType="Self.status_table" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="tasks_table" EntityType="Self.tasks_table" />
+    <AssociationSet Name="FK__tasks_tab__statu__571DF1D5" Association="Self.FK__tasks_tab__statu__571DF1D5">
+      <End Role="status_table" EntitySet="status_table" />
+      <End Role="tasks_table" EntitySet="tasks_table" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

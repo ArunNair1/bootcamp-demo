@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TodoAppModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="status_table">
+    <Key>
+      <PropertyRef Name="status_id" />
+    </Key>
+    <Property Name="status_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="stat" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="tasks_table">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tasks" Type="varchar" MaxLength="200" />
+    <Property Name="status_id" Type="int" />
+    <Property Name="completed_date" Type="datetime" />
+  </EntityType>
+  <Association Name="FK__tasks_tab__statu__571DF1D5">
+    <End Role="status_table" Type="Self.status_table" Multiplicity="0..1" />
+    <End Role="tasks_table" Type="Self.tasks_table" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="status_table">
+        <PropertyRef Name="status_id" />
+      </Principal>
+      <Dependent Role="tasks_table">
+        <PropertyRef Name="status_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TodoAppModelStoreContainer">
+    <EntitySet Name="status_table" EntityType="Self.status_table" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tasks_table" EntityType="Self.tasks_table" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__tasks_tab__statu__571DF1D5" Association="Self.FK__tasks_tab__statu__571DF1D5">
+      <End Role="status_table" EntitySet="status_table" />
+      <End Role="tasks_table" EntitySet="tasks_table" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

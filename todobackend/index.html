@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		  <meta charset="UTF-8">
+		  <meta name="description" content="Free Web tutorials">
+		  <meta name="keywords" content="HTML,CSS,XML,JavaScript">
+		  <meta name="author" content="John Doe">
+		  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+			<link rel="stylesheet" href="styles.css"/>
+			<script
+			  src="https://code.jquery.com/jquery-3.3.1.min.js"
+			  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+			  crossorigin="anonymous"></script>
+			  
+		
+		<script>
+			function btnclick()
+			{
+				alert("one");
+				$.ajax({
+					type: "GET",
+					url: 'http://localhost:52371/api/status_table',
+					async:true, 
+					crossDomain:true,
+					success: function(response) {
+						alert("hello");
+						console.log(response);
+					}
+				});
+			}
+			
+			
+
+			function postclick()
+			{
+				alert("post");
+				$.ajax({
+					type: "POST",
+					url: 'http://localhost:52371/api/status_table',
+					async:true, 
+					dataType:"json",
+					data:{"stat":"Test"},
+					crossDomain:true,
+					success: function(response) {
+						alert("hello");
+						console.log(response);
+					}
+				});
+			}
+		
+					
+			function putclick()
+			{
+				alert("post");
+				$.ajax({
+					type: "PUT",
+					url: 'http://localhost:52371/api/status_table/1',
+					async:true, 
+					dataType:"json",
+					data:{"stat":"Put"},
+					crossDomain:true,
+					success: function(response) {
+						alert("hello");
+						console.log(response);
+					}
+				});
+			}
+		
+					
+			
+		</script>
+		
+	</head>
+	
+	<body>
+	<p id="demo"></p>
+		
+		<h3>hello</h3>
+		<div class="calc_outer box_shadows">
+				<div class="input_field" id="input_display">
+				</div>
+				<button onclick="btnclick();">Get</button>
+				<button onclick="postclick();">Post</button>
+				<button onclick="putclick();">Put</button>
+		</div>
+	</body>
+</html>
