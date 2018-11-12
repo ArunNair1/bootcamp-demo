@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace TodoAPI
 {
@@ -10,7 +11,8 @@ namespace TodoAPI
         public static void Register(HttpConfiguration config)
         {
             // Web API configuration and services
-            config.EnableCors();
+            var cors = new EnableCorsAttribute("http://localhost:8080", "*", "*");
+            config.EnableCors(cors);
             // Web API routes
             config.MapHttpAttributeRoutes();
 
@@ -19,6 +21,11 @@ namespace TodoAPI
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+
+            //need to clarify
+            config.Formatters.JsonFormatter.SerializerSettings.ReferenceLoopHandling 
+= Newtonsoft.Json.ReferenceLoopHandling.Ignore; 
         }
     }
 }

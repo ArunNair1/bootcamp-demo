@@ -5,7 +5,7 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="3c7a2d85131645839d5e46f525023858" Name="Diagram1">
-        <EntityTypeShape EntityType="TodoAppModel.status_table" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TodoAppModel.status_table" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="TodoAppModel.sysdiagram" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="TodoAppModel.tasks_table" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
         <AssociationConnector Association="TodoAppModel.FK__tasks_tab__statu__571DF1D5" ManuallyRouted="false" />

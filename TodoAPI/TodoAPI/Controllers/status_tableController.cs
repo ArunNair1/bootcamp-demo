@@ -13,16 +13,21 @@ using System.Web.Http.Cors;
 
 namespace TodoAPI.Controllers
 {
+    [RoutePrefix("api/status_table")]
     public class status_tableController : ApiController
     {
         private TodoAppEntities1 db = new TodoAppEntities1();
 
+        [Route("get")]
         // GET: api/status_table
+        [HttpGet]
         public IQueryable<status_table> Getstatus_table()
         {
             return db.status_table;
         }
 
+        [Route("get/{id}")]
+        [HttpGet]
         // GET: api/status_table/5
         [ResponseType(typeof(status_table))]
         public IHttpActionResult Getstatus_table(int id)
@@ -36,12 +41,13 @@ namespace TodoAPI.Controllers
             return Ok(status_table);
         }
 
-        // PUT: api/status_table/5
+        [Route("put/{id}")]
+        //PUT: api/status_table/5
         [ResponseType(typeof(void))]
-        [EnableCors(origins: "http://localhost:8080/arun/todobackend/", headers: "*", methods: "*")]
-
-        public IHttpActionResult Putstatus_table(int id, status_table status_table)
+        [HttpPut]
+        public IHttpActionResult Putstatus_table(int id, [FromBody]status_table status_table)
         {
+
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
@@ -70,10 +76,13 @@ namespace TodoAPI.Controllers
                 }
             }
 
-            return StatusCode(HttpStatusCode.NoContent);
+            //return StatusCode(HttpStatusCode.NoContent);
+            return Ok();
         }
 
         // POST: api/status_table
+        [Route("post")]
+        [HttpPost]
         [ResponseType(typeof(status_table))]
         public IHttpActionResult Poststatus_table(status_table status_table)
         {
@@ -89,6 +98,8 @@ namespace TodoAPI.Controllers
         }
 
         // DELETE: api/status_table/5
+        [Route("delete/{id}")]
+        [HttpDelete]
         [ResponseType(typeof(status_table))]
         public IHttpActionResult Deletestatus_table(int id)
         {

@@ -1,0 +1,87 @@
+*
+			{
+				margin:0px;padding:0px;
+				font-family: "Courier New", Courier, monospace;
+			}
+			.centered-div 
+			{
+				margin:0 auto;
+				text-align:center;
+			}
+			.task-div
+			{
+				background-color:#fbd29b99;
+				width:80%;
+				margin:1% auto;
+			}
+			
+			.task-div h3
+			{
+				padding:10px;
+			}
+			.task-div .close-button, .task-div .edit-button, .task-div .check-button
+			{
+				float:right;
+				margin-right:5px;
+				cursor:pointer;
+			}
+			.input-field
+			{
+				font-size:15px;
+				width:50%;
+				height:30px;
+				padding:0px 10px;
+			}
+			.input-field-div
+			{
+				margin:2%;
+			}
+			.submit-btn
+			{
+				padding:5px; 
+			}
+			.outer-div
+			{
+				margin-top:10%;
+				
+			}
+			.inner-div
+			{
+				width:90%;
+				border:5px double #eeeeee;
+				padding:1% 0%;
+				background: #5c5a5a66;
+				color: #fff;
+			}
+			#err_msg
+			{
+				color:red;
+				font-size:15px;
+				background-color:#fffa;
+				
+			}
+			
+			.submit-btn
+			{
+				background-color:#fde4c3;
+				
+			}
+			.btn:focus
+			{
+				box-shadow: 0 0 0 1px rgb(252, 211, 156)!important;
+			}
+			.btn:active
+			{
+				box-shadow: 0 0 0 .2rem rgb(236, 199, 150)!important;
+			}
+			.input-field:focus
+			{
+				border:1px solid rgb(252, 211, 156);
+			}
+			
+		body
+		{
+			background:url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQF7_BL0NnnbHXKXcOwDwDMVGadjxHGdy0nLpzGQyn88cDal7VV');
+		}
+		
+		
