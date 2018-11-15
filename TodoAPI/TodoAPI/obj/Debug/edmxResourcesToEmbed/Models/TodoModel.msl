@@ -23,10 +23,19 @@
     <EntitySetMapping Name="tasks_table">
       <EntityTypeMapping TypeName="TodoAppModel.tasks_table">
         <MappingFragment StoreEntitySet="tasks_table">
+          <ScalarProperty Name="todo_type_id" ColumnName="todo_type_id" />
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="tasks" ColumnName="tasks" />
           <ScalarProperty Name="status_id" ColumnName="status_id" />
           <ScalarProperty Name="completed_date" ColumnName="completed_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="todo_type_table">
+      <EntityTypeMapping TypeName="TodoAppModel.todo_type_table">
+        <MappingFragment StoreEntitySet="todo_type_table">
+          <ScalarProperty Name="todo_type_name" ColumnName="todo_type_name" />
+          <ScalarProperty Name="todo_type_id" ColumnName="todo_type_id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

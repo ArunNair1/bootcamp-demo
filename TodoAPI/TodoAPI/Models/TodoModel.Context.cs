@@ -28,5 +28,6 @@ namespace TodoAPI.Models
         public virtual DbSet<status_table> status_table { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<tasks_table> tasks_table { get; set; }
+        public virtual DbSet<todo_type_table> todo_type_table { get; set; }
     }
 }

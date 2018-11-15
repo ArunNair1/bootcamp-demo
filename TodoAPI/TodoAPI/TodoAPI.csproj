@@ -140,6 +140,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>TodoModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\todo_type_table.cs">
+      <DependentUpon>TodoModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\todo_type_tableController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>

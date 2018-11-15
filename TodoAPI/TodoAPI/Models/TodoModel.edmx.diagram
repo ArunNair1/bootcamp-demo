@@ -9,6 +9,8 @@
         <EntityTypeShape EntityType="TodoAppModel.sysdiagram" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="TodoAppModel.tasks_table" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
         <AssociationConnector Association="TodoAppModel.FK__tasks_tab__statu__571DF1D5" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="TodoAppModel.todo_type_table" Width="1.5" PointX="0.75" PointY="7.25" />
+        <AssociationConnector Association="TodoAppModel.FK__tasks_tab__todo___5AEE82B9" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

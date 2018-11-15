@@ -27,6 +27,8 @@
     <Property Name="status_id" Type="Int32" />
     <Property Name="completed_date" Type="DateTime" Precision="3" />
     <NavigationProperty Name="status_table" Relationship="Self.FK__tasks_tab__statu__571DF1D5" FromRole="tasks_table" ToRole="status_table" />
+    <Property Name="todo_type_id" Type="Int32" />
+    <NavigationProperty Name="todo_type_table1" Relationship="TodoAppModel.FK__tasks_tab__todo___5AEE82B9" FromRole="tasks_table" ToRole="todo_type_table" />
   </EntityType>
   <Association Name="FK__tasks_tab__statu__571DF1D5">
     <End Role="status_table" Type="Self.status_table" Multiplicity="0..1" />
@@ -48,5 +50,30 @@
       <End Role="status_table" EntitySet="status_table" />
       <End Role="tasks_table" EntitySet="tasks_table" />
     </AssociationSet>
+    <EntitySet Name="todo_type_table" EntityType="TodoAppModel.todo_type_table" />
+    <AssociationSet Name="FK__tasks_tab__todo___5AEE82B9" Association="TodoAppModel.FK__tasks_tab__todo___5AEE82B9">
+      <End Role="todo_type_table" EntitySet="todo_type_table" />
+      <End Role="tasks_table" EntitySet="tasks_table" />
+    </AssociationSet>
   </EntityContainer>
+  <EntityType Name="todo_type_table">
+    <Key>
+      <PropertyRef Name="todo_type_id" />
+    </Key>
+    <Property Name="todo_type_id" Type="Int32" Nullable="false" />
+    <Property Name="todo_type_name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tasks_table1" Relationship="TodoAppModel.FK__tasks_tab__todo___5AEE82B9" FromRole="todo_type_table" ToRole="tasks_table" />
+  </EntityType>
+  <Association Name="FK__tasks_tab__todo___5AEE82B9">
+    <End Type="TodoAppModel.todo_type_table" Role="todo_type_table" Multiplicity="0..1" />
+    <End Type="TodoAppModel.tasks_table" Role="tasks_table" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="todo_type_table">
+        <PropertyRef Name="todo_type_id" />
+      </Principal>
+      <Dependent Role="tasks_table">
+        <PropertyRef Name="todo_type_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

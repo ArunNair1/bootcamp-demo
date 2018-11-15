@@ -9,6 +9,7 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
 using TodoAPI.Models;
+using System.Globalization;
 
 namespace TodoAPI.Controllers
 {
@@ -22,8 +23,18 @@ namespace TodoAPI.Controllers
         [HttpGet]
         public IQueryable<tasks_table> Gettasks_table()
         {
-            return db.tasks_table;
-           
+            CultureInfo provider = CultureInfo.InvariantCulture;
+            /*
+            DateTime dt1 = DateTime.ParseExact(first_date,
+                                    "yyyy-MM-dd HH:mm:ss",provider);
+            DateTime dt2 = DateTime.ParseExact(second_date,
+                                   "yyyy-MM-dd HH:mm:ss", provider);
+            return db.tasks_table.Where(t=>t.completed_date>dt1 && t.completed_date<dt2); 
+            */
+                return db.tasks_table;
+
+
+            
         }
 
         [Route("get/{id}")]
@@ -117,6 +128,36 @@ namespace TodoAPI.Controllers
             return Ok(tasks_table);
         }
 
+
+
+        [Route("Getselectedtasks_table/{value1}")]
+        // GET: api/tasks_table
+        [HttpGet]
+        public IQueryable Getselectedtasks_table(int value1)
+        {
+            /* var tasks_table = db.tasks_table;
+             if (tasks_table == null)
+             {
+                 return NotFound();
+             }
+
+             return Ok(tasks_table);
+             */
+            var display_data = db.tasks_table;
+            if (value1 != 0)
+            {
+                return display_data.Where(t => t.todo_type_id == value1);
+            }
+            else
+            {
+                return display_data;
+            }
+            
+           
+              
+            
+            //return Ok();
+        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)

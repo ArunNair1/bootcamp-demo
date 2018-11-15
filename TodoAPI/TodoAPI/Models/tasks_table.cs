@@ -18,7 +18,9 @@ namespace TodoAPI.Models
         public string tasks { get; set; }
         public Nullable<int> status_id { get; set; }
         public Nullable<System.DateTime> completed_date { get; set; }
+        public Nullable<int> todo_type_id { get; set; }
     
         public virtual status_table status_table { get; set; }
+        public virtual todo_type_table todo_type_table1 { get; set; }
     }
 }
