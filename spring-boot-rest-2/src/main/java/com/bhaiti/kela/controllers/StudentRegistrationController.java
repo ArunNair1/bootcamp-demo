@@ -1,5 +1,13 @@
 package com.bhaiti.kela.controllers;
 
+import java.io.EOFException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 import org.springframework.http.MediaType;
 
 //import java.util.List;
@@ -15,6 +23,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.bhaiti.kela.beans.*;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectWriter;
 
 @Controller
 
@@ -43,6 +53,39 @@ public class StudentRegistrationController {
 
         stdregreply.setRegistrationStatus("Successful");
 
+        JSONArray jsonArray;
+        JSONParser parser = new JSONParser(); 
+    	try(FileReader f = new FileReader("student.json"))
+    	{	
+    		Object bb = parser.parse(f);
+    		jsonArray = (JSONArray)bb;
+    		System.out.println("reaced here"+jsonArray);	
+    	}
+    	catch(Exception ex)
+    	{	
+    		System.out.println("not read 1 "+ex);
+    		jsonArray = new JSONArray();
+    	}
+    	
+        try (FileWriter file = new FileWriter("student.json")) {
+        	ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();	
+        	String json = ow.writeValueAsString(student);
+        	
+        	
+        	JSONObject obj = (JSONObject)parser.parse(json);	
+        	//JSONObject obj1 = new JSONObject();
+        	//JSONArray jsonArray = (JSONArray)obj1;
+            //JSONArray jsonArray = new JSONArray();
+        	
+        	
+        	jsonArray.add(obj);	
+        	file.write(jsonArray.toString());
+            file.flush();
+ 
+        } catch (Exception e) {
+        	System.out.println("2");
+            e.printStackTrace();
+        }
         return stdregreply;
 
 }

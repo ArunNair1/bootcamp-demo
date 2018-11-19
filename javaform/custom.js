@@ -35,7 +35,6 @@ function get_students()
 
 function AddStudent()
 {
-alert("here");
 let submit_flag=0;
 submit_flag=validate_input();
 
@@ -51,7 +50,7 @@ if(submit_flag==1)
 	edit_id=document.getElementById('edit_id').value;
 	if(edit_id)
 	{
-		put_data(name_data,age_data,reg_data);
+		put_data(name_data,age_data,reg_data,edit_id);
 
 	}
 	else
@@ -155,11 +154,11 @@ function post_data(insert_name,insert_age,insert_regno)
 
 }
 
-function put_data(insert_name,insert_age,insert_regno)
+function put_data(insert_name,insert_age,insert_regno,ed_id1)
 {
 	$.ajax({
 			type: "PUT",
-			url: 'http://localhost:8085/update/student',
+			url: 'http://localhost:8085/update/student/'+ed_id1,
 			async:true, 
 			dataType:"json",
 			data:{"name":insert_name,"age":insert_age,"registrationNumber":insert_regno},
@@ -183,7 +182,7 @@ function show_all_students(all_data)
 	for(let iter=0;iter<all_data.length;iter++)
 	{
 		console.log(all_data[iter]);
-		$("#test").append('<tr id="'+all_data[iter].registrationNumber+'"><td>'+(iter+1)+'</td><td>'+all_data[iter].name+'</td><td>'+all_data[iter].age+'</td><td>'+all_data[iter].registrationNumber+'</td><td><button class="btn-success" onclick="edit_this_student('+iter+','+all_data[iter].registrationNumber+')">Edit</button><button class="btn-danger"  onclick="delete_this_student('+all_data[iter].registrationNumber+')">Delete</button></td></tr>');
+		$("#test").append('<tr id="'+all_data[iter].registrationNumber+'"><td>'+(iter+1)+'</td><td>'+all_data[iter].name+'</td><td>'+all_data[iter].age+'</td><td>'+all_data[iter].registrationNumber+'</td><td><button class="btn-success" onclick="edit_this_student('+iter+','+all_data[iter].registrationNumber+')">Edit</button><button class="btn-danger"  onclick="delete_this_student('+iter+','+all_data[iter].registrationNumber+')">Delete</button></td></tr>');
 	}
 }
 
@@ -197,7 +196,7 @@ function edit_this_student(id,ed_id)
 	window.location = 'http://localhost:8080/javaform/form.html'
 }
 
-function delete_this_student(del_id)
+function delete_this_student(id,del_id)
 {
 	
 	let confirmation_var=confirm("Do you want to delete this task");
@@ -206,7 +205,7 @@ function delete_this_student(del_id)
 		
 		$.ajax({
 					method: "DELETE",
-					url: 'http://localhost:8085/delete/student/'+del_id+'',
+					url: 'http://localhost:8085/delete/student/'+id+'',
 					async:true, 
 					dataType:"json",
 					headers:{
@@ -238,9 +237,9 @@ function getStudentById(ed_id)
 				},
 			crossDomain:true,
 			success: function(response) {
-				
+				console.log(ed_id);
 				document.getElementById('user_name').value=response.name;
-				document.getElementById('edit_id').value=response.registrationNumber;
+				document.getElementById('edit_id').value=ed_id;
 				document.getElementById('user_age').value=response.age;
 				document.getElementById('user_regno').value=response.registrationNumber;
 				//show_all_students(response);

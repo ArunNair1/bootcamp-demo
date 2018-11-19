@@ -1,4 +1,9 @@
 package com.bhaiti.kela.controllers;
+import java.io.FileReader;
+import java.io.FileWriter;
+
+import org.json.simple.JSONArray;
+import org.json.simple.parser.JSONParser;
 import org.springframework.stereotype.Controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,8 +29,36 @@ public String deleteStudentRecord(@PathVariable("regdNum") String regdNum) {
 
 System.out.println("In deleteStudentRecord");   
 
-     StudentRegistration.getInstance().deleteStudent(regdNum);
-    	return regdNum;
+     //StudentRegistration.getInstance().deleteStudent(regdNum);
+JSONArray jsonArray;
+JSONParser parser = new JSONParser();
+try(FileReader f = new FileReader("student.json"))
+	{	
+		Object bb = parser.parse(f);
+		jsonArray = (JSONArray)bb;
+			
+	}
+	catch(Exception ex)
+	{	
+		
+		jsonArray = new JSONArray();
+	}
+
+jsonArray.remove(Integer.parseInt(regdNum));
+try (FileWriter file = new FileWriter("student.json")) 
+{
+	
+	//System.out.println("reaced here"+jsonArray);
+file.write(jsonArray.toString());
+file.flush();
+
+
+}
+catch (Exception e) {
+e.printStackTrace();
+}
+
+return regdNum;
 }
 
 }
