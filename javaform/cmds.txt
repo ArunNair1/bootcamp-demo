@@ -1,0 +1,31 @@
+
+
+
+
+mvnw clean package 
+
+
+
+https://dzone.com/articles/spring-boot-restful-web-service-complete-example
+
+cors and boot explained:
+
+https://dzone.com/articles/development-of-a-rest-api-in-spring-boot-framework
+https://www.journaldev.com/7969/spring-boot-tutorial
+https://www.journaldev.com/7989/key-components-and-internals-of-spring-boot-framework
+https://dzone.com/articles/lifecycle-of-a-request-response-process-for-a-spri
+https://www.stacktips.com/tutorials/spring/how-spring-controller-request-mapping-works-in-spring-mvc
+https://dzone.com/articles/getting-know-cross-origin
+
+
+remove cors error:
+
+https://stackoverflow.com/questions/29389031/cross-origin-request-blocked-spring-rest-service-ajax
+https://spring.io/guides/gs/rest-service-cors/
+
+
+content tupe (media type error)
+
+https://stackoverflow.com/questions/34782025/http-post-request-with-content-type-application-x-www-form-urlencoded-not-workin/38252762#38252762
+https://stackoverflow.com/questions/34782025/http-post-request-with-content-type-application-x-www-form-urlencoded-not-workin/38252762
+https://stackoverflow.com/questions/33796218/content-type-application-x-www-form-urlencodedcharset-utf-8-not-supported-for

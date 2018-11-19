@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		  <meta charset="UTF-8">
+		  <meta name="description" content="My ToDo App">
+		  <meta name="keywords" content="HTML,CSS,XML,JavaScript">
+		  <meta name="author" content="ToDo App">
+		  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+			<!-- <link rel="stylesheet" href="styles.css"/> -->
+			
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+		
+			<script
+			  src="https://code.jquery.com/jquery-3.3.1.min.js"
+			  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+			  crossorigin="anonymous"></script>
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
+		<script type="text/javascript" src="custom.js"></script>
+		
+		
+		
+	</head>
+	
+	<body onload="edit_form_filler();">
+	<style>
+	.centered
+	{
+		margin:10% auto;
+	}
+	.btns
+	{
+		text-align:center;
+	}
+	.container
+	{
+		border:2px solid black;
+		padding:15px;
+	}
+	</style>
+		
+		
+		<div class="container centered">
+		
+			<div class="row">
+				<div class="col-md-6">
+					Name:
+				</div>
+				<div class="col-md-6">
+					<input class="form-control" type="text" name="user_name" id="user_name"/>
+					<input type="hidden" name="edit_id" id="edit_id" value=""/>
+					<span id="name_error"></span>	
+				</div>
+			</div>
+			<br/>
+			<div class="row">
+				<div class="col-md-6">
+					Age:
+				</div>
+				<div class="col-md-6">
+					<input class="form-control" type="text" name="user_age" id="user_age"/>
+					<span id="age_error"></span>	
+				</div>
+			</div>
+			<br/>
+			<div class="row">
+				<div class="col-md-6">
+					Registration Number:
+				</div>
+				<div class="col-md-6">
+					<input class="form-control" type="text" name="user_regno" id="user_regno"/>
+					<span id="reg_error"></span>
+				</div>
+			</div>
+			<br/>
+			<div class="row btns">
+				<div class="col-md-12 ">
+					<button onclick="AddStudent()" class="btn btn-primary" >Save</button>
+					<button class="btn btn-default" >Cancel</button>
+				</div>
+				
+			</div>
+		
+		</div>
+		
+	</body>
+</html>

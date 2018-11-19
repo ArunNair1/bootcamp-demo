@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		  <meta charset="UTF-8">
+		  <meta name="description" content="My ToDo App">
+		  <meta name="keywords" content="HTML,CSS,XML,JavaScript">
+		  <meta name="author" content="ToDo App">
+		  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+			<!-- <link rel="stylesheet" href="styles.css"/> -->
+			
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+			<script
+			  src="https://code.jquery.com/jquery-3.3.1.min.js"
+			  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+			  crossorigin="anonymous"></script>
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
+		<script type="text/javascript" src="custom.js"></script>
+		
+	</head>
+	
+	<body onload="get_students()">
+	<style>
+	.centered
+	{
+		margin:10% auto;
+	}
+	.btns
+	{
+		text-align:center;
+	}
+	.container
+	{
+		border:2px solid black;
+		padding:15px;
+	}
+	.setting
+	{
+	float:right;
+	}
+	</style>
+		
+		
+		<div class="container centered">
+		
+			<div class="table-responsive">  
+				
+				<div class="">
+					List of Students
+					<a class="setting btn btn-primary" href="form.html">Add New</a>
+					
+				</div>
+				
+				<table class="table">
+					<thead>
+						<th>S. No.</th>
+						<th>Name</th>
+						<th>Age</th>
+						<th>Registration Number</th>
+						<th>Actions</th>
+					</thead>
+					<tbody id="test">
+						<!-- <tr>
+							<td>1</td>
+							<td>Arun</td>
+							<td>25</td>
+							<td>12345</td>
+							<td>
+								<button class="btn-success">Edit</button>
+								<button class="btn-danger">Delete</button>
+							</td>
+						</tr> -->
+					</tbody>
+				</table>
+			</div>
+		</div>
+		
+	</body>
+</html>

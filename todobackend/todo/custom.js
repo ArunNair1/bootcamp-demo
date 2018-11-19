@@ -5,26 +5,9 @@ var edit_content;
 var insert_date;
 var global_date_format_str;
 var is_editing=0;
+var is_editing_task_type=1;
 
-// function abc()
-// {
-	
-	// alert("hello123");
-	// $.ajax({
-					// type: "POST",
-					// url: 'http://localhost:52371/api/status_table/post',
-					// async:true, 
-					// dataType:"json",
-					// data:{"stat":"localhost"},
-					// crossDomain:true,
-					// success: function(response) {
-						// alert("hello");
-						// console.log(response);
-					// }
-				// });
-				
-				
-// }
+var types_content;
 
 
 
@@ -32,6 +15,9 @@ function AddNote()
 {
 	//let add_success=0;
 	let content=document.getElementById('task_content').value;
+	let task_type_identifier=document.getElementById('task_type').value;
+	
+	
 	if(content.trim()=="")
 	{
 		$("#err_msg").show();
@@ -47,13 +33,23 @@ function AddNote()
 				
 		if(is_editing!=0)
 		{
+			
+			
 			edit_the_content(content,date_format_str);
 		}
 		else
 		{
 		
 		
-		
+			if(task_type_identifier==0)
+			{
+				insert_task_type=1;//default value
+			}
+			else
+			{
+				insert_task_type=task_type_identifier;
+			}
+			console.log(task_type_identifier);
 				
 
 				$.ajax({
@@ -61,7 +57,7 @@ function AddNote()
 							url: 'http://localhost:52371/api/tasks_table/post',
 							async:true, 
 							dataType:"json",
-							data:{"tasks":content,"completed_date":date_format_str,"status_id":"2"},
+							data:{"tasks":content,"completed_date":date_format_str,"status_id":"2","todo_type_id":insert_task_type},
 							crossDomain:true,
 							success: function(response) {
 								
@@ -85,9 +81,11 @@ function DeleteTask(task_id)
 	console.log(task_id);
 	let task_count='task_id_'+task_id+'';
 	//console.log(task_count);
-	
-	
-	$.ajax({
+	let confirmation_var=confirm("Do you want to delete this task");
+	if(confirmation_var==true)
+	{
+		
+		$.ajax({
 					method: "DELETE",
 					url: 'http://localhost:52371/api/tasks_table/delete/'+task_id+'',
 					async:true, 
@@ -97,13 +95,15 @@ function DeleteTask(task_id)
                         },
 					
 					success: function(response) {
-						alert("hello");
+						
 						console.log(response);
 						$("#"+task_count).remove();
 	
 					},
 					error: function(thrownerror){console.log(thrownerror);}
 				});
+	}
+	
 	
 	
 	//
@@ -120,7 +120,14 @@ function EditTask(task_id)
 	}
 	else
 	{
+			
 			console.log(task_id);
+			 $("#task_type").prop("disabled", true);
+			 
+			let task_type_identifier=$("#task_content_"+task_id).attr("data-contenttype");
+			console.log("arun"+task_type_identifier);
+			
+			
 			let task_count='task_id_'+task_id+'';
 			let task_content='#task_content_'+task_id+'';
 			edit_content = $(task_content).attr("data-value");
@@ -128,7 +135,12 @@ function EditTask(task_id)
 			$("#"+task_count).remove();
 			document.getElementById('task_content').focus();
 			is_editing=task_id;
-	
+			
+			is_editing_task_type=task_type_identifier;
+			
+			
+			console.log("arun"+is_editing_task_type);
+			
 	}
 	
 }
@@ -189,8 +201,34 @@ $(document).ready( function(){
 	
 	document.getElementById("task_content").value="";
 	
+	/*
+	
+	
+	let date_1= new Date();
+	
+	let d1 = new Date(date_1.getTime() - 3000000);
+	date1_format_str = d1.getFullYear().toString()+"-"+((d1.getMonth()+1).toString().length==2?(d1.getMonth()+1).toString():"0"+(d1.getMonth()+1).toString())+"-"+(d1.getDate().toString().length==2?d1.getDate().toString():"0"+d1.getDate().toString())+" "+(d1.getHours().toString().length==2?d1.getHours().toString():"0"+d1.getHours().toString())+":"+((parseInt(d1.getMinutes()/5)*5).toString().length==2?(parseInt(d1.getMinutes()/5)*5).toString():"0"+(parseInt(d1.getMinutes()/5)*5).toString())+":00";
+	console.log(date1_format_str);
+		
+	let date_2= new Date();
+	date_2.setDate(date_2.getDate() + 1);
+	let d2 = new Date(date_2.getTime() - 3000000);
+	date2_format_str = d2.getFullYear().toString()+"-"+((d2.getMonth()+1).toString().length==2?(d2.getMonth()+1).toString():"0"+(d2.getMonth()+1).toString())+"-"+(d2.getDate().toString().length==2?d2.getDate().toString():"0"+d2.getDate().toString())+" "+(d2.getHours().toString().length==2?d2.getHours().toString():"0"+d2.getHours().toString())+":"+((parseInt(d2.getMinutes()/5)*5).toString().length==2?(parseInt(d2.getMinutes()/5)*5).toString():"0"+(parseInt(d2.getMinutes()/5)*5).toString())+":00";		
+	console.log(date2_format_str);
+	
+	
+	
+	
+	include_date();
+	get_todays_task(date1_format_str,date2_format_str);
+	*/
+	
 	include_date();
 	get_todays_task();
+	get_task_type();
+	
+	
+	
 	
 	});
 	
@@ -219,17 +257,39 @@ function include_date()
 function add_task_to_ui(display_content,display_id)
 {
 	
-			//	alert(display_id);
+			//alert(display_id);
 				let task_count='task_id_'+display_id+'';
-					let task_content='task_content_'+display_id+'';
+				let task_content='task_content_'+display_id+'';
+				
+				
+				
+				let task_type_identifier=document.getElementById('task_type').value;
+				if(task_type_identifier==0 && is_editing_task_type==-1)
+				{
+					insert_task_type=1;//default value
+					alert("hi");
+				}
+				else if(task_type_identifier==0 && is_editing_task_type!=-1)
+				{
+					insert_task_type=is_editing_task_type;
+					alert("hi2");
+				}
+				else
+				{
+					insert_task_type=task_type_identifier;
+					alert("hi3");
+				}
+	
+	
 					//console.log(task_count);
-					$("#tasks_div").append('<div class="container centered-div task-div" style="display:none;" id="'+task_count+'"><div style="margin:0 auto"><h3 id="'+task_content+'" data-complete="0" data-value="'+display_content+'">'+display_content+'<span class="close-button"><i class="fa fa-times" onclick="DeleteTask('+display_id+');"></i></span><span class="edit-button" onclick="EditTask('+display_id+');"><i class="fa fa-edit"></i></span><span class="check-button" id="check_'+display_id+'" onclick="CompleteTask('+display_id+');"><i class="fa fa-check"></i></span></h3></div></div>');
-		//task_counter++;
+					$("#tasks_div").append('<div class="container centered-div task-div" style="display:none;" id="'+task_count+'"><div style="margin:0 auto"><h3 id="'+task_content+'" data-complete="0" data-contenttype="'+insert_task_type+'" data-value="'+display_content+'">'+display_content+'<span class="close-button"><i class="fa fa-times" onclick="DeleteTask('+display_id+');"></i></span><span class="edit-button" onclick="EditTask('+display_id+');"><i class="fa fa-edit"></i></span><span class="check-button" id="check_'+display_id+'" onclick="CompleteTask('+display_id+');"><i class="fa fa-check"></i></span></h3></div></div>');
+					//task_counter++;
 					document.getElementById('task_content').value="";
 					$("#"+task_count).fadeIn(1000);
 					//$( "#"+task_count ).animate({height: 'toggle'}, "fast");
 					//$( "#"+task_count ).fadeIn("fast");
 					edit_content="";
+					is_editing_task_type=-1;
 }
 
 
@@ -262,7 +322,8 @@ function edit_the_content(content,date_format_str)
 	
 	console.log(is_editing);
 	
-	
+	console.log("arun 2"+is_editing_task_type);
+	console.log("arun inside add for edit"+is_editing_task_type);
 	
 	$.ajax({
 					method: "PUT",
@@ -272,36 +333,47 @@ function edit_the_content(content,date_format_str)
 					headers:{
                             'Access-Control-Allow-Origin':'*'
                         },
-					data:{"id":is_editing,"tasks":content,"completed_date":date_format_str,"status_id":"2"},
+					data:{"id":is_editing,"tasks":content,"completed_date":date_format_str,"status_id":"2","todo_type_id":is_editing_task_type},
 					success: function(response) {
 								console.log(response);
 								object=response;
 								console.log("object"+object);
 								console.log("object value"+object.tasks);
+								console.log("object type value"+object.todo_type_id);
 								add_task_to_ui(object.tasks,object.id);
+								
+								$("#task_type").prop("disabled", false);
 					},
 					error: function(thrownerror){console.log(thrownerror);}
 				});
+				
 }
 
 
 
 function show_all_tasks(all_data)
 {
+	
 	for(let iter=0;iter<all_data.length;iter++)
 	{
 		if(all_data[iter].completed_date!=null)
 		{
+			
 			let check_date=all_data[iter].completed_date;
 		
 			
 			if(global_date_format_str.split(" ")[0]==check_date.split("T")[0])
 			{
+				
 				let task_count='task_id_'+all_data[iter].id+'';
 				let task_content='task_content_'+all_data[iter].id+'';
 				
+				let task_type_identifier=all_data[iter].todo_type_id;
 				
-				$("#tasks_div").append('<div class="container centered-div task-div" style="display:none;" id="'+task_count+'"><div style="margin:0 auto"><h3 id="'+task_content+'" data-complete="0" data-value="'+all_data[iter].tasks+'">'+all_data[iter].tasks+'<span class="close-button"><i class="fa fa-times" onclick="DeleteTask('+all_data[iter].id+');"></i></span><span class="edit-button" onclick="EditTask('+all_data[iter].id+');"><i class="fa fa-edit"></i></span><span class="check-button" id="check_'+all_data[iter].id+'" onclick="CompleteTask('+all_data[iter].id+');"><i class="fa fa-check"></i></span></h3></div></div>');
+				
+				
+				
+				$("#tasks_div").append('<div class="container centered-div task-div" style="display:none;" id="'+task_count+'"><div style="margin:0 auto"><h3 id="'+task_content+'" data-contenttype="'+task_type_identifier+'" data-complete="0" data-value="'+all_data[iter].tasks+'">'+all_data[iter].tasks+'<span class="close-button"><i class="fa fa-times" onclick="DeleteTask('+all_data[iter].id+');"></i></span><span class="edit-button" onclick="EditTask('+all_data[iter].id+');"><i class="fa fa-edit"></i></span><span class="check-button" id="check_'+all_data[iter].id+'" onclick="CompleteTask('+all_data[iter].id+');"><i class="fa fa-check"></i></span></h3></div></div>');
 				
 				if(all_data[iter].status_id==5)
 				{
@@ -340,7 +412,10 @@ function prev()
 	//console.log(insert_date);
 	change_date(insert_date);
 	$("#tasks_div").empty(); 
-	get_todays_task();
+	//get_todays_task();
+	
+	let condition_value=$("#task_type").children("option:selected"). val();
+	fetch_data_selectively(condition_value,insert_date);
 }
 
 function next()
@@ -350,7 +425,9 @@ function next()
 	global_date_format_str = d.getFullYear().toString()+"-"+((d.getMonth()+1).toString().length==2?(d.getMonth()+1).toString():"0"+(d.getMonth()+1).toString())+"-"+(d.getDate().toString().length==2?d.getDate().toString():"0"+d.getDate().toString())+" "+(d.getHours().toString().length==2?d.getHours().toString():"0"+d.getHours().toString())+":"+((parseInt(d.getMinutes()/5)*5).toString().length==2?(parseInt(d.getMinutes()/5)*5).toString():"0"+(parseInt(d.getMinutes()/5)*5).toString())+":00";
 	change_date(insert_date);
 	$("#tasks_div").empty(); 
-	get_todays_task();
+	//get_todays_task();
+	let condition_value=$("#task_type").children("option:selected"). val();
+	fetch_data_selectively(condition_value,insert_date);
 }
 
 
@@ -386,3 +463,68 @@ function strike_through(task_id)
 	}
 }
 
+function get_task_type()
+{
+	$.ajax({
+			type: "GET",
+			url: 'http://localhost:52371/api/todo_type_table',
+			async:true, 
+			dataType:"json",
+			headers:{
+					'Access-Control-Allow-Origin':'*'
+				},
+			crossDomain:true,
+			success: function(response) {
+				
+				console.log(response);
+				types_content=response;
+				
+				/*for(let k=0;k<types_content.length;k++)
+				{
+					console.log(types_content[k].todo_type_name);
+					
+					
+				}
+				*/
+				$.each(types_content, function(key, value) 
+				{
+					 $('#task_type').append($('<option>', { value : value.todo_type_id }).text(value.todo_type_name));
+				});
+				
+			}
+		});
+}
+
+function freshen_all_data_on_select()
+{
+	
+	let condition_value=$("#task_type").children("option:selected"). val();
+	fetch_data_selectively(condition_value,insert_date);
+	
+}
+
+function fetch_data_selectively(condition_value1,condition_value2)
+{
+	console.log(condition_value1);
+	console.log(condition_value2);
+	
+	$.ajax({
+			type: "GET",
+			url: 'http://localhost:52371/api/tasks_table/Getselectedtasks_table/'+condition_value1,
+			async:true, 
+			dataType:"json",
+			headers:{
+					'Access-Control-Allow-Origin':'*'
+				},
+			crossDomain:true,
+			success: function(response) {
+				
+				console.log(response);
+				//show_all_tasks(response);
+				$("#tasks_div").empty(); 
+				show_all_tasks(response);
+			},
+			error:function(err){console.log(err);}
+		});
+	
+}

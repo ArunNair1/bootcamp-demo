@@ -40,7 +40,12 @@
 								<button onclick="AddNote();" class="btn submit-btn">Add Task</button>
 						</div>
 						<span id="err_msg"></span>
-								
+						<br/>
+						<div style="margin:0 auto">
+								<select type="text" class="input-field" id="task_type" onchange="freshen_all_data_on_select()">
+									<option value="0">All Task Types</option>
+								</select>
+						</div>		
 					</div>
 
 					<div id="tasks_div">
