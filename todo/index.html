@@ -29,7 +29,7 @@
 	</head>
 	
 	<body>
-		<a href="two.html"><h1>link</h2></a>
+		<a href="two.html" onclick="myMethod()"><h1>link</h2></a>
 		<div class="outer-div">
 			<div class="inner-div centered-div">
 					<div class="container centered-div">
@@ -75,7 +75,11 @@
 			</div>
 		</div>
 		
-
+<script>
+	function myMethod() {
+ga(‘send’, ‘event’, ‘PDF’, ‘Download’, ‘Company Brochure – PDF Download’);
+}
+		</script>
 
 	</body>
 </html>
