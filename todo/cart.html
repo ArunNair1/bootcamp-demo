@@ -16,15 +16,6 @@
 			  crossorigin="anonymous"></script>
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
 		<script type="text/javascript" src="custom.js"></script>
-		<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-164652690-2"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-164652690-2');
-</script>
 
 	</head>
 	
@@ -36,7 +27,7 @@
 						
 						<div style="margin:0 auto">
 							
-								<h1>To Do List Second Page</h1>
+								<h1>cart Page</h1>
 							
 						</div>
 					</div>
@@ -44,8 +35,15 @@
 						
 						<div style="margin:0 auto">
 								
-								<input type="text" class="input-field" id="task_content" placeholder="Please enter a task"/>
-								<button onclick="AddNote();" class="btn submit-btn">Add Task</button>
+								<button class="btn submit-btn"><a href="index.html">Home</a></button>
+								<button class="btn submit-btn"><a href="products.html">Products</a></button>
+								<button class="btn submit-btn"><a href="myorder.html">Order</a></button>
+								<button class="btn submit-btn"><a href="wishlist.html">WishList</a></button>
+								
+						</div>
+						<hr/>
+						<div style="margin:0 auto">
+								<h2> My Cart</h2>								
 						</div>
 						<span id="err_msg"></span>
 								
@@ -53,29 +51,40 @@
 
 					<div id="tasks_div">
 						
-					<!--<div class="container centered-div task-div" id="task_id_1">
-						
+					<div class="container centered-div task-div" id="task_id_1">
 						<div style="margin:0 auto">
-							
-								<h3>
-								
-									Task1
-									<span class="close-button"><i onclick="DeleteNote('task_id_1');" class="fa fa-times"></i></span>
-									<span class="edit-bitton"><i class="fa fa-edit"></i></span>
-								</h3>
-								
-								
+							<h3>
+								Product 1
+									
+							</h3>
 						</div>
 					</div> 
-					-->
 					
-				
+					<div class="container centered-div task-div" id="task_id_1">
+						<div style="margin:0 auto">
+							<h3>
+								Product 2
+									
+							</h3>
+						</div>
+					</div> 
+					
+					<div class="container centered-div task-div" id="task_id_1">
+						<div style="margin:0 auto">
+							<h3>
+								Product 3
+									
+							</h3>
+						</div>
+					</div> 
+					
+					<button class="btn submit-btn"><a href="checkout.html">Checkout</a></button>
+					
 					</div>
 		
 			</div>
 		</div>
 		
-
 
 	</body>
 </html>

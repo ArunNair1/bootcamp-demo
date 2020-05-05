@@ -1,4 +1,12 @@
 
+function analyticsMethod()
+{
+	
+}
+
+
+
+
 var task_counter=0;
 var edit_content;
 

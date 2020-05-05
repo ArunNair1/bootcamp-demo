@@ -16,18 +16,27 @@
 			  crossorigin="anonymous"></script>
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
 		<script type="text/javascript" src="custom.js"></script>
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-164652690-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-164652690-2');
+</script>
 
 	</head>
 	
 	<body>
-		
+		<a href="two.html" onclick="myMethod()"><h1>link</h2></a>
 		<div class="outer-div">
 			<div class="inner-div centered-div">
 					<div class="container centered-div">
 						
 						<div style="margin:0 auto">
 							
-								<h1>Home Page</h1>
+								<h1>To Do List</h1>
 							
 						</div>
 					</div>
@@ -35,11 +44,8 @@
 						
 						<div style="margin:0 auto">
 								
-								<button class="btn submit-btn"><a href="index.html">Home</a></button>
-								<button class="btn submit-btn"><a href="products.html">Products</a></button>
-								<button class="btn submit-btn"><a href="myorder.html">Order</a></button>
-								<button class="btn submit-btn"><a href="wishlist.html">WishList</a></button>
-								
+								<input type="text" class="input-field" id="task_content" placeholder="Please enter a task"/>
+								<button onclick="AddNote();" class="btn submit-btn">Add Task</button>
 						</div>
 						<span id="err_msg"></span>
 								
@@ -69,6 +75,13 @@
 			</div>
 		</div>
 		
+<script>
+	function myMethod() {
+		alert("a");
+gtag('event', 'login', { method : 'Google' });
+alert("b");
+	}
+		</script>
 
 	</body>
 </html>
