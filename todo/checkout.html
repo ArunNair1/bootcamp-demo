@@ -69,6 +69,34 @@
 			</div>
 		</div>
 		
+	<!------ analytics code starts----->
 
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-analytics.js"></script>
+
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyDHbuNNrlktA9nIcUbqd6HB-cozU-oQd1c",
+    authDomain: "analyticstest-c21bf.firebaseapp.com",
+    databaseURL: "https://analyticstest-c21bf.firebaseio.com",
+    projectId: "analyticstest-c21bf",
+    storageBucket: "analyticstest-c21bf.appspot.com",
+    messagingSenderId: "142773722955",
+    appId: "1:142773722955:web:310e102deb1e9133e292ce",
+    measurementId: "G-VJHZW71TEK"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
+
+<!------ analytics code ends----->
 	</body>
 </html>
