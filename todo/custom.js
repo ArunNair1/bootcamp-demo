@@ -4,7 +4,7 @@ function analyticsMethod(funcCall)
 	switch(funcCall)
 	{
 		case 1: {
-				gtag('config', 'GA_MEASUREMENT_ID', {
+				gtag('config', 'G-VJHZW71TEK', {
 					'user_id': '1683testuser'
 				});
 				gtag('event', 'page_view',"ProductsPageView");
