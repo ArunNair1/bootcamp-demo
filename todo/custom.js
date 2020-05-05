@@ -7,15 +7,17 @@ function analyticsMethod(funcCall)
 				gtag('config', 'G-VJHZW71TEK', {
 					'user_id': '1683testuser'
 				});
-				gtag('event', 'page_view',"ProductsPageView");
+				gtag('event', 'ecom_page_view',"HomePageView");
+				gtag('event', 'ecom_screen_view', { 'screen_name': 'Home'});
 				/*setCurrentScreen ( screenName :  "HomePage");*/
 				break;
 				}
 				
 		case 2: {
 				/*setCurrentScreen ( screenName :  "ProductsPage");*/
-				gtag('event', 'page_view',"ProductsPageView");
-				gtag('event', 'view_item_list', {"items": [
+				gtag('event', 'ecom_page_view',"ProductsPageView");
+				gtag('event', 'ecom_screen_view', { 'screen_name': 'ProductsPage'});
+				gtag('event', 'ecom_view_item_list', {"items": [
 					{
 					  "id": "P12345",
 					  "name": "Android Warhol T-Shirt",
