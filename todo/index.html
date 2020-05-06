@@ -28,7 +28,7 @@
 						
 						<div style="margin:0 auto">
 							
-								<h1>Home Page</h1>
+								<h1>Login Page</h1>
 							
 						</div>
 					</div>
@@ -36,10 +36,11 @@
 						
 						<div style="margin:0 auto">
 								
-								<button class="btn submit-btn"><a id="homePage" href="index.html" onclick="analyticsMethod(1)">Home</a></button>
-								<button class="btn submit-btn"><a id="productPage" href="products.html" onclick="analyticsMethod(2)">Products</a></button>
-								<button class="btn submit-btn"><a id="orderPage" href="myorder.html">Order</a></button>
-								<button class="btn submit-btn"><a id="wishlistPage" href="wishlist.html">WishList</a></button>
+								<input type="text" class="form-control" placeholder="Enter User id" id="userId">
+								<br/>
+								<a id="loginPage" href="home.html" onclick="analyticsMethod(0)">
+									<button class="btn submit-btn">Login</button>
+								</a>
 								
 						</div>
 						<span id="err_msg"></span>

@@ -35,10 +35,18 @@
 						
 						<div style="margin:0 auto">
 								
-								<button class="btn submit-btn"><a id="homePage" href="index.html">Home</a></button>
-								<button class="btn submit-btn"><a id="productPage" href="products.html">Products</a></button>
-								<button class="btn submit-btn"><a id="orderPage" href="myorder.html">Order</a></button>
-								<button class="btn submit-btn"><a id="wishlistPage" href="wishlist.html">WishList</a></button>
+								<a id="productPage" href="home.html" onclick="analyticsMethod(1)">
+									<button class="btn submit-btn">Home</button>
+								</a>
+								<a id="productPage" href="products.html" onclick="analyticsMethod(2)">
+									<button class="btn submit-btn">Products</button>
+								</a>
+								<!--<a id="orderPage" href="myorder.html" onclick="analyticsMethod(3)">
+									<button class="btn submit-btn">Order</button>
+								</a>-->
+								<a id="wishlistPage" href="wishlist.html" onclick="analyticsMethod(4)">
+									<button class="btn submit-btn">WishList</button>
+								</a>
 								
 						</div>
 						<hr/>
@@ -53,28 +61,34 @@
 						
 					<div class="container centered-div task-div" id="task_id_1">
 						<div style="margin:0 auto">
+							<a id="orderDetail1" href="orderDetail.html" onclick="analyticsMethod(6,1)">
 							<h3>
 								Order 1
 									
 							</h3>
+							</a>
 						</div>
 					</div> 
 					
 					<div class="container centered-div task-div" id="task_id_1">
 						<div style="margin:0 auto">
+							<a id="orderDetail2" href="orderDetail.html" onclick="analyticsMethod(6,2)">
 							<h3>
 								Order 2
 									
 							</h3>
+							</a>
 						</div>
 					</div> 
 					
 					<div class="container centered-div task-div" id="task_id_1">
 						<div style="margin:0 auto">
+							<a id="orderDetail3" href="orderDetail.html" onclick="analyticsMethod(6,3)">
 							<h3>
 								Order 3
 									
 							</h3>
+							</a>
 						</div>
 					</div> 
 					

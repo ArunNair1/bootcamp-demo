@@ -16,7 +16,8 @@
 			  crossorigin="anonymous"></script>
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
 		<script type="text/javascript" src="custom.js"></script>
-
+	
+		
 	</head>
 	
 	<body>
@@ -27,7 +28,7 @@
 						
 						<div style="margin:0 auto">
 							
-								<h1>WishList Page</h1>
+								<h1>Home Page</h1>
 							
 						</div>
 					</div>
@@ -35,9 +36,7 @@
 						
 						<div style="margin:0 auto">
 								
-								<a id="productPage" href="home.html" onclick="analyticsMethod(1)">
-									<button class="btn submit-btn">Home</button>
-								</a>
+								<!--<button class="btn submit-btn"><a id="homePage" href="home.html" onclick="analyticsMethod(1)">Home</a></button>-->
 								<a id="productPage" href="products.html" onclick="analyticsMethod(2)">
 									<button class="btn submit-btn">Products</button>
 								</a>
@@ -49,45 +48,27 @@
 								</a>
 								
 						</div>
-						<hr/>
-						<div style="margin:0 auto">
-								<h2> My Wishlist</h2>								
-						</div>
 						<span id="err_msg"></span>
 								
 					</div>
 
 					<div id="tasks_div">
 						
-					<div class="container centered-div task-div" id="task_id_1">
+					<!--<div class="container centered-div task-div" id="task_id_1">
+						
 						<div style="margin:0 auto">
-							<a id="detailPage1" href="productDetail1.html" onclick="analyticsMethod(5,1)">
+							
 								<h3>
-									Product 1	
+								
+									Task1
+									<span class="close-button"><i onclick="DeleteNote('task_id_1');" class="fa fa-times"></i></span>
+									<span class="edit-bitton"><i class="fa fa-edit"></i></span>
 								</h3>
-							</a>
+								
+								
 						</div>
 					</div> 
-					
-					<div class="container centered-div task-div" id="task_id_1">
-						<div style="margin:0 auto">
-							<a id="detailPage2" href="productDetail2.html" onclick="analyticsMethod(5,2)">
-								<h3>
-									Product 2	
-								</h3>
-							</a>
-						</div>
-					</div> 
-					
-					<div class="container centered-div task-div" id="task_id_1">
-						<div style="margin:0 auto">
-							<a id="detailPage3" href="productDetail3.html" onclick="analyticsMethod(5,3)">
-								<h3>
-									Product 3	
-								</h3>
-							</a>
-						</div>
-					</div> 
+					-->
 					
 				
 					</div>
@@ -95,7 +76,7 @@
 			</div>
 		</div>
 		
-	<!------ analytics code starts----->
+		<!------ analytics code starts----->
 
 <!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>

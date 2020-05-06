@@ -1,4 +1,90 @@
-function analyticsMethod(funcCall)
+function analyticsMethod(funcCall,detailPageId=null)
+{
+	//alert(funcCall);
+	
+	switch(funcCall)
+	{
+		case 0: 
+			{
+				//alert("login function called");
+				var userId=document.getElementById("userId").value;
+				gtag('config', 'G-VJHZW71TEK', {'user_id': userId});
+				gtag('event', 'ecom_user_login',"user logged in");
+				gtag('event', 'ecom_page_view',"HomePageView");
+				gtag('event', 'ecom_screen_view', { 'screen_name': 'Home'});
+				 break; 
+			}
+		case 1:
+			{
+				gtag('event', 'ecom_page_view',"HomePageView");
+				gtag('event', 'ecom_screen_view', { 'screen_name': 'Home'});
+				//alert("home page loaded"); 
+				break; 
+			}
+		case 2: 
+			{
+				gtag('event', 'ecom_page_view',"ProductListPageView");
+				gtag('event', 'ecom_screen_view', { 'screen_name': 'ProductList'});
+				//alert("product page loaded");
+				break; 
+			}
+		case 3: 
+			{
+				gtag('event', 'ecom_page_view',"OrderListPageView");
+				gtag('event', 'ecom_screen_view', { 'screen_name': 'OrderList'});
+				//alert("order page loaded"); 
+				break; 
+			}
+		case 4: 
+			{
+				gtag('event', 'ecom_page_view',"WishlistPageView");
+				gtag('event', 'ecom_screen_view', { 'screen_name': 'Wishlist'});
+				//alert("wishlist page loaded"); break; 
+			}
+		case 5:
+			{
+				gtag('event', 'ecom_page_view',"ProductDetailPageView");
+				gtag('event', 'ecom_screen_view', { 'screen_name': 'ProductDetail'});
+				var prodname= "product"+detailPageId+" details loaded";
+				gtag('event', 'ecom_prod_details_view', prodname);
+				//alert("productDetail page loaded"); 
+				break;
+			}
+		case 6: 
+			{ 
+				gtag('event', 'ecom_page_view',"OrderDetailPageView");
+				gtag('event', 'ecom_screen_view', { 'screen_name': 'OrderDetail'});
+				var ordername= "order"+detailPageId+" details loaded";
+				gtag('event', 'ecom_order_details_view', ordername);
+				//alert("orderdetail page loaded"); 
+				break;
+			}
+		case 7: 
+			{ 
+				gtag('event', 'ecom_page_view',"CartPageView");
+				gtag('event', 'ecom_screen_view', { 'screen_name': 'Cart'});
+				//alert("cart page loaded"); 
+				break;
+			}
+		case 8:
+			{
+				gtag('event', 'ecom_page_view',"CheckoutPageView");
+				gtag('event', 'ecom_screen_view', { 'screen_name': 'Checkout'});
+				//alert("checkout page loaded");
+				break; 
+			}
+		default:
+			{
+				gtag('event', 'ecom_page_view',"LoginPageView");
+				gtag('event', 'ecom_screen_view', { 'screen_name': 'Login'});
+				break;
+			}
+		
+	}
+}
+
+
+function analyticsMethod1(funcCall)
 {
 	
 	switch(funcCall)
@@ -44,7 +130,7 @@ function analyticsMethod(funcCall)
 				
 				break;
 				}
-		default:{alert("default"); break;}
+		default:{//alert("default"); break;}
 	}
 
 }
