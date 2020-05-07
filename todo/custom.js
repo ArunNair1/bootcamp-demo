@@ -1,14 +1,14 @@
 var userIds="";
 function myFunction()
 {
-	userIds=localStorage.getItem("lastname");
+	userIds=sessionStorage.getItem("lastname");
 
-	alert(userIds);
+	//alert(userIds);
 	if(userIds!="")
 	{
-		alert(userIds);
+		//alert(userIds);
 		gtag('config', 'G-VJHZW71TEK', {'user_id': userIds});
-		localStorage.removeItem("lastname");
+		sessionStorage.removeItem("lastname");
 		userIds="";
 		//alert(userIds);
 	}	
@@ -23,8 +23,8 @@ function analyticsMethod(funcCall,detailPageId=0)
 		case 0: 
 			{
 				userIds=document.getElementById("userId").value;
-				alert(userIds+" is userId");
-				localStorage.setItem("lastname", userIds);
+				//alert(userIds+" is userId");
+				sessionStorage.setItem("lastname", userIds);
 				
 				//document.cookie = "username=John Doe";
 				
