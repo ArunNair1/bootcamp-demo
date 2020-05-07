@@ -11,73 +11,73 @@ function analyticsMethod(funcCall,detailPageId=0)
 				//alert(userId);
 				gtag('config', 'G-VJHZW71TEK', {'user_id': userId});
 				gtag('event', 'ecom_user_login',"user logged in");
-				gtag('event', 'ecom_page_view',"HomePageView");
-				gtag('event', 'ecom_screen_view', { 'screen_name': 'Home'});
+				gtag('event', 'ecom_home_page_view',"HomePageView");
+				gtag('event', 'ecom_home_screen_view', { 'screen_name': 'Home'});
 				 break; 
 			}
 		case 1:
 			{
-				gtag('event', 'ecom_page_view',"HomePageView");
-				gtag('event', 'ecom_screen_view', { 'screen_name': 'Home'});
+				gtag('event', 'ecom_home_page_view',"HomePageView");
+				gtag('event', 'ecom_home_screen_view', { 'screen_name': 'Home'});
 				//alert("home page loaded"); 
 				break; 
 			}
 		case 2: 
 			{
-				gtag('event', 'ecom_page_view',"ProductListPageView");
-				gtag('event', 'ecom_screen_view', { 'screen_name': 'ProductList'});
+				gtag('event', 'ecom_productlist_page_view',"ProductListPageView");
+				gtag('event', 'ecom_productlist_screen_view', { 'screen_name': 'ProductList'});
 				//alert("product page loaded");
 				break; 
 			}
 		case 3: 
 			{
-				gtag('event', 'ecom_page_view',"OrderListPageView");
-				gtag('event', 'ecom_screen_view', { 'screen_name': 'OrderList'});
+				gtag('event', 'ecom_orderlist_page_view',"OrderListPageView");
+				gtag('event', 'ecom_orderlist_screen_view', { 'screen_name': 'OrderList'});
 				//alert("order page loaded"); 
 				break; 
 			}
 		case 4: 
 			{
-				gtag('event', 'ecom_page_view',"WishlistPageView");
-				gtag('event', 'ecom_screen_view', { 'screen_name': 'Wishlist'});
+				gtag('event', 'ecom_wishlist_page_view',"WishlistPageView");
+				gtag('event', 'ecom_wishlist_screen_view', { 'screen_name': 'Wishlist'});
 				//alert("wishlist page loaded"); break; 
 			}
 		case 5:
 			{
-				gtag('event', 'ecom_page_view',"ProductDetailPageView");
-				gtag('event', 'ecom_screen_view', { 'screen_name': 'ProductDetail'});
+				gtag('event', 'ecom_productDetail_page_view',"ProductDetailPageView");
+				gtag('event', 'ecom_productDetail_screen_view', { 'screen_name': 'ProductDetail'});
 				var prodname= "product"+detailPageId+" details loaded";
-				gtag('event', 'ecom_prod_details_view', prodname);
+				gtag('event', 'ecom_prod_id_details_view', prodname);
 				//alert("productDetail page loaded"); 
 				break;
 			}
 		case 6: 
 			{ 
-				gtag('event', 'ecom_page_view',"OrderDetailPageView");
-				gtag('event', 'ecom_screen_view', { 'screen_name': 'OrderDetail'});
+				gtag('event', 'ecom_orderDetail_page_view',"OrderDetailPageView");
+				gtag('event', 'ecom_orderDetail_screen_view', { 'screen_name': 'OrderDetail'});
 				var ordername= "order"+detailPageId+" details loaded";
-				gtag('event', 'ecom_order_details_view', ordername);
+				gtag('event', 'ecom_order_id_details_view', ordername);
 				//alert("orderdetail page loaded"); 
 				break;
 			}
 		case 7: 
 			{ 
-				gtag('event', 'ecom_page_view',"CartPageView");
-				gtag('event', 'ecom_screen_view', { 'screen_name': 'Cart'});
+				gtag('event', 'ecom_cart_page_view',"CartPageView");
+				gtag('event', 'ecom_cart_screen_view', { 'screen_name': 'Cart'});
 				//alert("cart page loaded"); 
 				break;
 			}
 		case 8:
 			{
-				gtag('event', 'ecom_page_view',"CheckoutPageView");
-				gtag('event', 'ecom_screen_view', { 'screen_name': 'Checkout'});
+				gtag('event', 'ecom_checkout_page_view',"CheckoutPageView");
+				gtag('event', 'ecom_checkout_screen_view', { 'screen_name': 'Checkout'});
 				//alert("checkout page loaded");
 				break; 
 			}
 		default:
 			{
-				gtag('event', 'ecom_page_view',"LoginPageView");
-				gtag('event', 'ecom_screen_view', { 'screen_name': 'Login'});
+				gtag('event', 'ecom_login_page_view',"LoginPageView");
+				gtag('event', 'ecom_login_screen_view', { 'screen_name': 'Login'});
 				break;
 			}
 		
