@@ -8,6 +8,7 @@ function analyticsMethod(funcCall,detailPageId=null)
 			{
 				//alert("login function called");
 				var userId=document.getElementById("userId").value;
+				alert(userId);
 				gtag('config', 'G-VJHZW71TEK', {'user_id': userId});
 				gtag('event', 'ecom_user_login',"user logged in");
 				gtag('event', 'ecom_page_view',"HomePageView");
