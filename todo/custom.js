@@ -1,4 +1,4 @@
-function analyticsMethod(funcCall,detailPageId=null)
+function analyticsMethod(funcCall,detailPageId=0)
 {
 	//alert(funcCall);
 	
@@ -8,7 +8,7 @@ function analyticsMethod(funcCall,detailPageId=null)
 			{
 				//alert("login function called");
 				var userId=document.getElementById("userId").value;
-				alert(userId);
+				//alert(userId);
 				gtag('config', 'G-VJHZW71TEK', {'user_id': userId});
 				gtag('event', 'ecom_user_login',"user logged in");
 				gtag('event', 'ecom_page_view',"HomePageView");
@@ -83,60 +83,6 @@ function analyticsMethod(funcCall,detailPageId=null)
 		
 	}
 }
-
-
-function analyticsMethod1(funcCall)
-{
-	
-	switch(funcCall)
-	{
-		case 1: {
-				gtag('config', 'G-VJHZW71TEK', {
-					'user_id': '1683testuser'
-				});
-				gtag('event', 'ecom_page_view',"HomePageView");
-				gtag('event', 'ecom_screen_view', { 'screen_name': 'Home'});
-				/*setCurrentScreen ( screenName :  "HomePage");*/
-				break;
-				}
-				
-		case 2: {
-				/*setCurrentScreen ( screenName :  "ProductsPage");*/
-				gtag('event', 'ecom_page_view',"ProductsPageView");
-				gtag('event', 'ecom_screen_view', { 'screen_name': 'ProductsPage'});
-				gtag('event', 'ecom_view_item_list', {"items": [
-					{
-					  "id": "P12345",
-					  "name": "Android Warhol T-Shirt",
-					  "list_name": "Search Results",
-					  "brand": "Google",
-					  "category": "Apparel/T-Shirts",
-					  "variant": "Black",
-					  "list_position": 1,
-					  "quantity": 2,
-					  "price": '2.0'
-					},
-					{
-					  "id": "P67890",
-					  "name": "Flame challenge TShirt",
-					  "list_name": "Search Results",
-					  "brand": "MyBrand",
-					  "category": "Apparel/T-Shirts",
-					  "variant": "Red",
-					  "list_position": 2,
-					  "quantity": 1,
-					  "price": '3.0'
-					}
-				]});
-				
-				break;
-				}
-		default:{//alert("default"); break;}
-	}
-
-}
-
-
 
 
 
