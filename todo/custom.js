@@ -6,7 +6,7 @@ function myFunction()
 	//alert(userIds);
 	if(userIds!="")
 	{
-		//alert(userIds);
+		document.getElementById('user_iden').innerHTML=userIds;
 		gtag('config', 'G-VJHZW71TEK', {'user_id': userIds});
 		sessionStorage.removeItem("lastname");
 		userIds="";
