@@ -1,18 +1,5 @@
 var userIds="";
-function myFunction()
-{
-	userIds=sessionStorage.getItem("lastname");
 
-	//alert(userIds);
-	if(userIds!="")
-	{
-		document.getElementById('user_iden').innerHTML=userIds;
-		gtag('config', 'G-VJHZW71TEK', {'user_id': userIds});
-		sessionStorage.removeItem("lastname");
-		userIds="";
-		//alert(userIds);
-	}	
-}
 
 function analyticsMethod(funcCall,detailPageId=0)
 {
@@ -22,21 +9,27 @@ function analyticsMethod(funcCall,detailPageId=0)
 	{
 		case 0: 
 			{
+				/*
 				userIds=document.getElementById("userId").value;
 				//alert(userIds+" is userId");
 				sessionStorage.setItem("lastname", userIds);
+				*/
+				
 				
 				//document.cookie = "username=John Doe";
 				
 				//alert("login function called");
-				//var userId=document.getElementById("userId").value;
+				var userId=document.getElementById("userId").value;
 				//alert(userId);
 				//gtag('config', 'G-VJHZW71TEK', {'user_id': userId});
-				/*gtag('event', 'ecom_user_login',"user logged in");
+				gtag('set', 'user_properties', {
+				  email: userId
+				});
+				gtag('event', 'ecom_user_login',"user logged in");
 				gtag('event', 'ecom_home_page_view',"HomePageView");
 				gtag('event', 'ecom_home_screen_view', { 'screen_name': 'Home'});
 				 break;
-*/				 
+				 
 			}
 		case 1:
 			{
